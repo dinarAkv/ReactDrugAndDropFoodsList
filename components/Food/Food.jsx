@@ -74,21 +74,25 @@ const foodTarget = {
 
     // Dragging downwards
 		if (draggedElementIndex < hoverElementIndex && hoverClientY < hoverMiddleY) {
+      console.log('downwards');
 			return
 		}
 
 		// Dragging upwards
 		if (draggedElementIndex > hoverElementIndex && hoverClientY > hoverMiddleY) {
+      console.log('upwards');
 			return
 		}
 
     // Dragging right
     if (draggedElementIndex < hoverElementIndex && hoverClientX < hoverMiddleX) {
+      console.log('right');
       return;
     }
 
     // Dragging left
     if (draggedElementIndex > hoverElementIndex && hoverClientX > hoverMiddleX) {
+      console.log('left');
       return;
     }
 
@@ -120,7 +124,7 @@ function connectTarget(connect){
 
 
 
-class Food extends React.Component {
+class Food extends React.PureComponent {
 
 
   constructor(props) {

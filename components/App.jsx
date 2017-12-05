@@ -19,7 +19,7 @@ import * as AvailabelFoodActionCreators  from '../actions/availabel_foods';
 /**
 * Styles.
 */
- import { boxStyle } from './App.css';
+ import { containerStyle } from './App.css';
 
 
 
@@ -40,7 +40,7 @@ import * as AvailabelFoodActionCreators  from '../actions/availabel_foods';
 
 
     return (
-      <div>
+      <div className={containerStyle} >
         {this.props.availabelFoods.map((food, index, arr) => {
 
 

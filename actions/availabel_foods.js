@@ -32,15 +32,6 @@ export const pushHoveredFood = (druggedElementIndex, hoveredElementIndex) => {
 				},
     });
 
-    // const pushedFoods = availabelFoods.splice([druggedElementIndex, 1], [hoveredElementIndex, 0, draggedFood]);
-
-    console.log('pushedFoods', pushedFoods);
-
-    // if (druggedElementIndex === hoveredElementIndex) {
-    //   availabelFoods[hoveredElementIndex].name = 'new name';
-    // }
-
-
     return dispatch(pushFood(pushedFoods));
   }
 }

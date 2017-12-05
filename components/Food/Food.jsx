@@ -48,8 +48,7 @@ function collect(connect, monitor) {
 
 const foodTarget = {
   hover(props, monitor, component) {
-      // console.log('monitor index', monitor.getItem().index);
-      // console.log('component', component);
+
 
     const draggedElementIndex = monitor.getItem().index;
     const hoverElementIndex = props.index;
@@ -60,11 +59,17 @@ const foodTarget = {
 		// Get vertical middle
 		const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
 
+    // Get horizontal middle.
+    const hoverMiddleX = (hoverBoundingRect.left - hoverBoundingRect.right) / 2;
+
 		// Determine mouse position
 		const clientOffset = monitor.getClientOffset();
 
 		// Get pixels to the top
-		const hoverClientY = clientOffset.y - hoverBoundingRect.top
+		const hoverClientY = clientOffset.y - hoverBoundingRect.top;
+
+    // Get pixels to the right.
+    const hoverClientX = clientOffset.x - hoverBoundingRect.right;
 
 
     // Dragging downwards
@@ -77,6 +82,15 @@ const foodTarget = {
 			return
 		}
 
+    // Dragging right
+    if (draggedElementIndex < hoverElementIndex && hoverClientX < hoverMiddleX) {
+      return;
+    }
+
+    // Dragging left
+    if (draggedElementIndex > hoverElementIndex && hoverClientX > hoverMiddleX) {
+      return;
+    }
 
 
 

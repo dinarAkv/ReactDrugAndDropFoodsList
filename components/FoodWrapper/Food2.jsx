@@ -4,7 +4,7 @@ import Food from '../Food/Food.jsx';
 
 
 
-class Food2 extends React.Component {
+class Food2 extends React.PureComponent {
 
 
   constructor(props) {

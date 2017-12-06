@@ -21,26 +21,26 @@ const pushFood = (data) => {
 };
 
 
-export const pushHoveredFood = (druggedElementIndex, hoveredElementIndex) => {
+export const pushHoveredFood = (draggedElementIndex, hoveredElementIndex) => {
   return (dispatch, getState) => {
     const availabelFoods = getState().availabelFoods;
-    const draggedFood = availabelFoods[druggedElementIndex];
+    const draggedFood = availabelFoods[draggedElementIndex];
 
-    const pushedFoods = update(getState(), {
-				availabelFoods: {
-					$splice: [[druggedElementIndex, 1], [hoveredElementIndex, 0, draggedFood]],
-				},
-    });
+    // const pushedFoods = update(getState(), {
+		// 		availabelFoods: {
+		// 			$splice: [[druggedElementIndex, 1], [hoveredElementIndex, 0, draggedFood]],
+		// 		},
+    // });
+    console.log('draggedElementIndex', draggedElementIndex);;
+    availabelFoods[hoveredElementIndex] = availabelFoods.splice(draggedElementIndex, 1, availabelFoods[hoveredElementIndex])[0];
 
-    // const pushedFoods = availabelFoods.splice([druggedElementIndex, 1], [hoveredElementIndex, 0, draggedFood]);
-
-    console.log('pushedFoods', pushedFoods);
+    
 
     // if (druggedElementIndex === hoveredElementIndex) {
     //   availabelFoods[hoveredElementIndex].name = 'new name';
     // }
 
 
-    return dispatch(pushFood(pushedFoods));
+    return dispatch(pushFood(Array.from(availabelFoods)));
   }
 }

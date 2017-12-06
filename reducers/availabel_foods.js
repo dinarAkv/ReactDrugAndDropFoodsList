@@ -40,10 +40,10 @@ export default function availabelFoods(state = initState, action){
   }
 
   if (action.type === PUSH_FOOD) {
-    console.log('reducer availabelFoods:', action.payload.availabelFoods);
+    console.log('reducer availabelFoods:', action.payload);
     console.log('..state:', [...state]);
 
-    return  action.payload.availabelFoods;
+    return  action.payload;
   }
 
   return state;
